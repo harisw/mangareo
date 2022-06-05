@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 const coverPlaceholder = "https://static.mangajar.com/posters/4529/NhKZN9lmEkCFDSpNwZVyP5x8jKrthgXRRmVff7Yz_mini.jpg";
 const API_URL = process.env.API_URL;
 
@@ -38,6 +39,7 @@ const Home = ({ updateds, populars }) => {
             Mangareo!
           </a>
         </h1>
+        <h1 className='text-xl pt-2'>One stop place for your manga</h1>
 
         <div className="mt-4 flex w-full justify-around sm:w-full space-x-6">
           <div className='bg-cyan-400 w-3/4 h-auto px-4 py-10 space-y-1 rounded shadow-xl'>
@@ -53,18 +55,7 @@ const Home = ({ updateds, populars }) => {
           </div>
         </div>
       </main>
-
-      <footer className="flex h-12 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+      <Footer />
     </div>
   )
 }
