@@ -3,18 +3,18 @@ import Image from 'next/image'
 
 import Navbar from '../components/Navbar';
 const coverPlaceholder = "https://static.mangajar.com/posters/4529/NhKZN9lmEkCFDSpNwZVyP5x8jKrthgXRRmVff7Yz_mini.jpg";
-const API_URL = "http://mangareo.azurewebsites.net";
+const API_URL = process.env.API_URL;
 
 const Home = ({ updateds, populars }) => {
   // console.log(data);
   const updatedManga = updateds.map(m => {
     return (
-      <div class="flex flex-col items-center justify-center w-40">  
-        <div class="w-full h-32 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style={{backgroundImage: `url(${coverPlaceholder})`}}></div>
-        <div class="-mt-10 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full text-sm">
-            <h1 class="text-base py-2 font-bold text-center text-gray-800 dark:text-white truncate">{m.title}</h1>
-            <span class="text-gray-800 dark:text-gray-200 mr-2">{m.chapter} chapter</span>
-            <button class="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Read</button>
+      <div className="flex flex-col items-center justify-center w-40">  
+        <div className="w-full h-32 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style={{backgroundImage: `url(${coverPlaceholder})`}}></div>
+        <div className="-mt-10 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 w-full text-sm">
+            <h1 className="text-base py-2 font-bold text-center text-gray-800 dark:text-white truncate">{m.title}</h1>
+            <span className="text-gray-800 dark:text-gray-200 mr-2">{m.chapter} chapter</span>
+            <button className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Read</button>
         </div>
     </div>
     );
@@ -70,6 +70,7 @@ const Home = ({ updateds, populars }) => {
 }
 
 export const getServerSideProps = async () => {
+  console.log(API_URL)
   const [updatedRes, popularRes] = await Promise.all([
     fetch(`${API_URL}/api/manga/last-updated`), 
     fetch(`${API_URL}/api/manga/most-viewed`)
