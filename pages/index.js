@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Image from 'next/image'
 
 import Navbar from '../components/Navbar';
@@ -27,13 +26,7 @@ const Home = ({ updateds, populars }) => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-yellow-300">
-      <Head>
-        <title>Mangareo - Your one stop place to explore Manga</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Navbar />
-      <main className="flex w-full flex-1 flex-col items-center content-start px-8 text-center">
+      <div>
         <h1 className="text-5xl font-bold">
           <a className="text-black" href="/">
             Mangareo!
@@ -54,8 +47,6 @@ const Home = ({ updateds, populars }) => {
             {popularManga}
           </div>
         </div>
-      </main>
-      <Footer />
     </div>
   )
 }

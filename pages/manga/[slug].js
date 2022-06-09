@@ -1,5 +1,3 @@
-import {supabase} from "../utils/supabase";
-
 const coverPlaceholder = "https://static.mangajar.com/posters/4529/NhKZN9lmEkCFDSpNwZVyP5x8jKrthgXRRmVff7Yz_mini.jpg";
 const API_URL = process.env.API_URL;
 

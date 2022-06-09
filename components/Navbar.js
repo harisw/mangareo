@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '../components/Link';
 import { useState } from 'react';
 import { useAuthContext } from '../context/authentication';
 
@@ -45,12 +45,16 @@ const Navbar = () => {
         <div className="py-2 flex w-full">
             <div className='w-1/2 flex items-center'>
                 <h1 className="text-3xl font-bold mx-5"><Link href="/"><a>Mangareo</a></Link></h1>
-                <h1 className="text-2xl font-bold mx-5">Top Manga</h1>
-                <h1 className="text-2xl font-bold mx-5">Genres</h1>
+                <h1 className="text-2xl font-bold mx-5"><Link href="/manga/top">Top Manga</Link></h1>
+                <h1 className="text-2xl font-bold mx-5"><Link href="/manga/genre">Genres</Link></h1>
             </div>
             <div className='w-1/2 flex justify-end items-center'>
                 {authToken ?
-                    <div><Link href="/user/profile"><a className="text-3xl font-bold mx-5 modal-button">Profile</a></Link></div>
+                    <div>
+                        <Link href="/user/mypage" className="text-3xl font-bold mx-5 modal-button">
+                            Profile
+                        </Link>
+                    </div>
                     : <div><label for="my-modal-6" className="text-3xl font-bold mx-5" onClick={() => setIsModalOpen(true)}>Login</label>
                     <label for="my-modal-6" className="text-3xl font-bold mx-5 modal-button">Register</label></div>
                 }
