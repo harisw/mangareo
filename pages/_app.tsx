@@ -1,14 +1,18 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { AuthProvider } from '../context/authentication';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from '../store';
+// import { AuthProvider } from '../context/authentication';
 import Layout from '../components/Layout';
 
+const store = createStore(reducer);
 function MyApp({ Component, pageProps }: AppProps) {
-  return (<AuthProvider>
+  return (<Provider store={store}>
             <Layout>
               <Component {...pageProps} />
             </Layout>
-          </AuthProvider>
+          </Provider>
   );
 }
 
