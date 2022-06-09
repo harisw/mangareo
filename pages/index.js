@@ -4,10 +4,10 @@ import Image from 'next/image'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 const coverPlaceholder = "https://static.mangajar.com/posters/4529/NhKZN9lmEkCFDSpNwZVyP5x8jKrthgXRRmVff7Yz_mini.jpg";
-const API_URL = process.env.API_URL;
+const API_URL = process.env.MY_API_URL;
 
 const Home = ({ updateds, populars }) => {
-  // console.log(data);
+  
   const updatedManga = updateds.map(m => {
     return (
       <div className="flex flex-col items-center justify-center w-40">  
@@ -61,10 +61,9 @@ const Home = ({ updateds, populars }) => {
 }
 
 export const getServerSideProps = async () => {
-  console.log(API_URL)
   const [updatedRes, popularRes] = await Promise.all([
-    fetch(`${API_URL}/api/manga/last-updated`), 
-    fetch(`${API_URL}/api/manga/most-viewed`)
+    fetch(`${API_URL}/manga/last-updated`), 
+    fetch(`${API_URL}/manga/most-viewed`)
   ]);
   const [updateds, populars] = await Promise.all([
     updatedRes.json(), 
